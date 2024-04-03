@@ -1,0 +1,37 @@
+$grey: #494C6B;
+$light-grey: #9495A5;
+$white: #FFFFFF;
+$almost-white: #FAFAFA;
+$almost-white-border: #E3E4F1;
+
+$ash: #C8CBE7;
+$dark-ash:#767992;
+$dark-grey: #25273D;
+$almost-black: #171823;
+$dark-grey-border: #393A4B;
+
+:root,
+:root[data-theme="light"] {
+  --header-color: #{$white};
+  --text-color: #{$grey};
+  --text-color-secondary: #{$light-grey};
+  --background-color: #{$almost-white};
+  --border-color: #{$almost-white-border};
+  --card-bg-color: #{$white};
+}
+
+:root[data-theme="dark"] {
+  --header-color: #{$white};
+  --text-color: #{$ash};
+  --text-color-secondary: #{$dark-ash};
+  --background-color: #{$almost-black};
+  --border-color: #{$dark-grey-border};
+  --card-bg-color: #{$dark-grey};
+}
+
+$header-color: var(--header-color);
+$text-color: var(--text-color);
+$text-color-secondary: var(--text-color-secondary);
+$background-color: var(--background-color);
+$border-color: var(--border-color);
+$card-bg-color: var(--card-bg-color);
