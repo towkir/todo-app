@@ -7,6 +7,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root,
+:root[data-theme="light"] {
+  .background-cover {
+    &.light-cover {
+      opacity: 1;
+    }
+    &.dark-cover {
+      opacity: 0;
+    }
+  }
+}
+
+:root[data-theme="dark"] {
+  .background-cover {
+    &.light-cover {
+      opacity: 0;
+    }
+    &.dark-cover {
+      opacity: 1;
+    }
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
