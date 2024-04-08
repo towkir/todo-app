@@ -46,6 +46,8 @@ body {
   align-items: flex-start;
   justify-content: center;
   min-height: 100%;
+  color: $text-color;
+  background-color: $background-color;
 }
 
 #app {
