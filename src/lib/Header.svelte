@@ -17,9 +17,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 40px;
   h1 {
     color: $header-color;
-    @include px-to-rem(40)
+    @include px-to-rem(40);
+    letter-spacing: 15px;
   }
   .theme-toggler {
     label {
