@@ -39,7 +39,7 @@ header {
           background-size: 26px;
           background-position-x: center, center;
           background-position-y: 0, 52px;
-          transition: background-position 0.3s ease-in-out;
+          @include transition($properties: background-position);
         }
         &:checked + .icon {
           background-position-y: -52px, 0;

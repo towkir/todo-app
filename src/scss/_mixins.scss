@@ -1,3 +1,9 @@
 @mixin px-to-rem($px) {
   font-size: ($px / 18) * 1rem;
 }
+
+@mixin transition($duration: 0.3s, $func: ease-in-out, $properties) {
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: $func;
+}

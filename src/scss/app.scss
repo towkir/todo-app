@@ -48,6 +48,7 @@ body {
   min-height: 100%;
   color: $text-color;
   background-color: $background-color;
+  @include transition($properties: (color, background-color));
 }
 
 #app {

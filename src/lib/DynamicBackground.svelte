@@ -11,7 +11,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  transition: opacity 0.3s ease-in-out;
+  @include transition($properties: opacity);
   z-index: -1;
   &.light-cover {
     background-image: url("src/assets/images/light-background.png");
