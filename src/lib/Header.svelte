@@ -1,12 +1,35 @@
-<script>
+<script lang="ts">
+  import { onMount } from 'svelte';
 
+  let currentTheme: string = localStorage.getItem('todo-app-theme') || 'light';
+  function isDarkThemeApplied(theme: string): boolean {
+    return theme === 'dark';
+  }
+  $: darkThemeApplied = isDarkThemeApplied(currentTheme);
+  function applyThemeToPage(): void {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  }
+  function saveThemeSettings(theme: string): void {
+    currentTheme = theme;
+    localStorage.setItem('todo-app-theme', theme);
+  }
+  function changeTheme(toDark: boolean): void {
+    saveThemeSettings(toDark ? 'dark': 'light');
+    applyThemeToPage();
+  }
+
+  onMount(() => {
+    applyThemeToPage();
+  })
 </script>
 
 <header>
   <h1>TODO</h1>
   <div class="theme-toggler">
     <label for="theme-switcher">
-      <input type="checkbox" id="theme-switcher">
+      <input type="checkbox" id="theme-switcher"
+        bind:checked={darkThemeApplied}
+        on:change={(event) => changeTheme(event.target.checked)}>
       <span class="icon"></span>
     </label>
   </div>
