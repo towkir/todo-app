@@ -1,0 +1,44 @@
+<script lang="ts">
+</script>
+
+<label class="todo-input-wrapper" for="todo-input">
+  <span class="circle"></span>
+  <input type="text" id="todo-input" placeholder="Create a new todo…" />
+</label>
+
+<style lang="scss">
+.todo-input-wrapper {
+  color: $text-color-secondary;
+  background-color: $card-bg-color;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  @include transition($properties: (color, background-color));
+  .circle {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid $border-color;
+    box-sizing: border-box;
+    margin-right: 24px;
+    @include transition($properties: border);
+  }
+  #todo-input {
+    border: 0;
+    display: block;
+    width: calc(100% - 48px);
+    color: inherit;
+    background-color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    caret-color: $just-blue;
+    @include transition($properties: (color, background-color));
+    &:focus {
+      outline: none;
+    }
+  }
+}
+</style>
