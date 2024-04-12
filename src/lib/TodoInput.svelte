@@ -15,7 +15,8 @@
   border-radius: 5px;
   padding: 20px 24px;
   margin-bottom: 24px;
-  @include transition($properties: (color, background-color));
+  box-shadow: 0 35px 50px -15px $shadow-color;
+  @include transition($properties: (color, background-color, box-shadow));
   .circle {
     display: inline-block;
     width: 24px;
