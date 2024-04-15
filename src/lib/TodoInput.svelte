@@ -31,11 +31,15 @@
     border: 0;
     display: block;
     width: calc(100% - 48px);
-    color: inherit;
-    background-color: inherit;
+    color: $text-color;
+    background-color: transparent;
     font-family: inherit;
     font-size: inherit;
     caret-color: $just-blue;
+    &::placeholder {
+      color: $text-color-secondary;
+      @include transition($properties: color);
+    }
     @include transition($properties: (color, background-color));
     &:focus {
       outline: none;
