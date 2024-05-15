@@ -43,7 +43,7 @@ header {
   margin-bottom: 40px;
   h1 {
     color: $header-color;
-    @include px-to-rem(40);
+    @include font-size-px-to-rem(40);
     letter-spacing: 15px;
   }
   .theme-toggler {

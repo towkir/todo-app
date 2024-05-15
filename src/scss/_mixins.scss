@@ -1,4 +1,4 @@
-@mixin px-to-rem($px) {
+@mixin font-size-px-to-rem($px) {
   font-size: ($px / 18) * 1rem;
 }
 
