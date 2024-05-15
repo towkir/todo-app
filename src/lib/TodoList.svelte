@@ -26,10 +26,10 @@
     <span>{incompleteItems} item{incompleteItems === 1 ? '' : 's'} left</span>
     <span class="tabs">
       {#each tabs as tab}
-        <button class:active={selectedTab === tab}>{tab}</button>
+        <button type="button" class:active={selectedTab === tab}>{tab}</button>
       {/each}
     </span>
-    <button>Clear Completed</button>
+    <button type="button">Clear Completed</button>
   </div>
 </div>
 
@@ -66,6 +66,7 @@
         background-color: transparent;
         font-family: inherit;
         font-size: inherit;
+        cursor: pointer;
       }
     }
   }
