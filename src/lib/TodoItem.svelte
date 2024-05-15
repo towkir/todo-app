@@ -7,6 +7,7 @@
     <span class="inner"></span>
   </span>
   <p>{todoItem.title}</p>
+  <button type="button" class="delete-btn"><img src="src/assets/icons/icon-cross.svg" /></button>
 </div>
 
 <style lang="scss">
@@ -21,6 +22,11 @@
       border-bottom: 1px solid $border-color;
     }
     @include transition($properties: (color, background-color, border-color));
+    &:hover {
+      button.delete-btn {
+        opacity: 1;
+      }
+    }
     &:hover, &.completed {
       .indicator {
         background-position: -72px -72px;
@@ -80,6 +86,10 @@
     p {
       position: relative;
       color: $text-color;
+      text-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right: 15px;
       @include transition($properties: color);
       &::before {
         content: '';
@@ -92,6 +102,15 @@
         background-color: $text-color;
         @include transition($properties: (width, background-color));
       }
+    }
+    button.delete-btn {
+      appearance: none;
+      border: none;
+      background-color: transparent;
+      margin-left: auto;
+      cursor: pointer;
+      opacity: 0;
+      @include transition($properties: opacity);
     }
   }
 </style>
