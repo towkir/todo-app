@@ -1,13 +1,26 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
+  export let index: number;
   export let todoItem: TodoType;
+
+  function toggleTodoStatus(): void {
+    dispatch('toggle', { index, status: !todoItem.isCompleted });
+  }
+
+  function deleteTodo(): void {
+    dispatch('delete', index);
+  }
 </script>
 
-<div class="todo-item" class:completed={todoItem.isCompleted}>
+<div class="todo-item" class:completed={todoItem.isCompleted} on:click={toggleTodoStatus}>
   <span class="indicator">
     <span class="inner"></span>
   </span>
   <p>{todoItem.title}</p>
-  <button type="button" class="delete-btn"><img src="src/assets/icons/icon-cross.svg" /></button>
+  <button type="button" class="delete-btn" on:click|stopPropagation={deleteTodo}>
+    <img src="src/assets/icons/icon-cross.svg" />
+  </button>
 </div>
 
 <style lang="scss">

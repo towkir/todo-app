@@ -1,8 +1,8 @@
 <script lang="ts">
   import TodoItem from 'src/lib/TodoItem.svelte';
   
-  const tabs:string[] = ['All', 'Active', 'Completed'];
-  let selectedTab:string = 'All';
+  const tabs: string[] = ['All', 'Active', 'Completed'];
+  let selectedTab: string = 'All';
   
   let todoItems: TodoType[] = [
     { title: 'Complete Todo App on Frontend Mentor', isCompleted: false },
@@ -18,8 +18,8 @@
 
 <div class="todo-list">
   <div class="todo-list-scroller">
-    {#each todoItems.reverse() as todo}
-      <TodoItem todoItem={todo}/>
+    {#each todoItems.reverse() as todo, index}
+      <TodoItem index={index} todoItem={todo}/>
     {/each}
   </div>
   <div class="status-bar">
