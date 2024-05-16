@@ -5,12 +5,12 @@
   let selectedTab:string = 'All';
   
   let todoItems: TodoType[] = [
-    { title: 'Complete online JavaScript course', isCompleted: true },
-    { title: 'Jog around the park 3x', isCompleted: false },
-    { title: '10 minutes meditation', isCompleted: false },
-    { title: 'Read for 1 hour', isCompleted: false },
+    { title: 'Complete Todo App on Frontend Mentor', isCompleted: false },
     { title: 'Pick up groceries', isCompleted: false },
-    { title: 'Complete Todo App on Frontend Mentor', isCompleted: false }
+    { title: 'Read for 1 hour', isCompleted: false },
+    { title: '10 minutes meditation', isCompleted: false },
+    { title: 'Jog around the park 3x', isCompleted: false },
+    { title: 'Complete online JavaScript course and Complete online JavaScript course', isCompleted: true }
   ];
 
   $: incompleteItems = todoItems.filter(item => item.isCompleted === false).length;
@@ -18,7 +18,7 @@
 
 <div class="todo-list">
   <div class="todo-list-scroller">
-    {#each todoItems as todo}
+    {#each todoItems.reverse() as todo}
       <TodoItem todoItem={todo}/>
     {/each}
   </div>
