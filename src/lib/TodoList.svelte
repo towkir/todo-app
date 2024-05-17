@@ -1,24 +1,16 @@
 <script lang="ts">
   import TodoItem from 'src/lib/TodoItem.svelte';
+  export let items: TodoType[];
   
   const tabs: string[] = ['All', 'Active', 'Completed'];
   let selectedTab: string = 'All';
-  
-  let todoItems: TodoType[] = [
-    { title: 'Complete Todo App on Frontend Mentor', isCompleted: false },
-    { title: 'Pick up groceries', isCompleted: false },
-    { title: 'Read for 1 hour', isCompleted: false },
-    { title: '10 minutes meditation', isCompleted: false },
-    { title: 'Jog around the park 3x', isCompleted: false },
-    { title: 'Complete online JavaScript course and Complete online JavaScript course', isCompleted: true }
-  ];
 
-  $: incompleteItems = todoItems.filter(item => item.isCompleted === false).length;
+  $: incompleteItems = items.filter(item => item.isCompleted === false).length;
 </script>
 
 <div class="todo-list">
   <div class="todo-list-scroller">
-    {#each todoItems.reverse() as todo, index}
+    {#each items.reverse() as todo, index}
       <TodoItem index={index} todoItem={todo}/>
     {/each}
   </div>
