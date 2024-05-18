@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { ComponentEvents } from 'svelte';
   import DynamicBackground from 'src/lib/DynamicBackground.svelte';
   import Header from 'src/lib/Header.svelte';
   import TodoInput from 'src/lib/TodoInput.svelte';
@@ -12,12 +13,22 @@
     { title: 'Jog around the park 3x', isCompleted: false },
     { title: 'Complete online JavaScript course and Complete online JavaScript course', isCompleted: true }
   ];
+
+  function addTodo(event: ComponentEvents<TodoInput>['add']): void {
+    let todoList = todoItems;
+    const todo: TodoType = {
+      title: event.detail,
+      isCompleted: false,
+    };
+    todoList.push(todo);
+    todoItems = todoList;
+  }
 </script>
 
 <main>
   <DynamicBackground />
   <Header />
-  <TodoInput />
+  <TodoInput on:add={addTodo} />
   <TodoList items={todoItems}/>
 </main>
 

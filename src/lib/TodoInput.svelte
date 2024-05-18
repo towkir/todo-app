@@ -1,9 +1,25 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
+  const dispatch = createEventDispatcher();
+  let todoText: string = '';
+
+  function emitText(event: KeyboardEvent) {
+    if (event.code === 'Enter') {
+      dispatch('add', todoText);
+      todoText = '';
+    }
+  }
 </script>
 
 <label class="todo-input-wrapper" for="todo-input">
   <span class="circle"></span>
-  <input type="text" id="todo-input" placeholder="Create a new todo…" />
+  <input
+    type="text"
+    id="todo-input"
+    bind:value={todoText}
+    on:keypress={emitText}
+    placeholder="Create a new todo…"
+  />
 </label>
 
 <style lang="scss">
