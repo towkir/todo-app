@@ -12,7 +12,7 @@
 <div class="todo-list">
   <div class="todo-list-scroller">
     {#each reversedList as todo, index}
-      <TodoItem index={index} todoItem={todo} on:toggle />
+      <TodoItem index={index} todoItem={todo} on:toggle on:delete />
     {/each}
   </div>
   <div class="status-bar">

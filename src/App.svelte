@@ -14,6 +14,11 @@
     { title: 'Complete online JavaScript course and Complete online JavaScript course', isCompleted: true }
   ];
 
+  function getReversedIndex(index: number): number {
+    // since the array is rendered in reverse and we add the last todo item on the top of the list
+    return (todoItems.length - 1) - index;
+  }
+
   function addTodo(event: ComponentEvents<TodoInput>['add']): void {
     let todoList = todoItems;
     const todo: TodoType = {
@@ -26,9 +31,13 @@
 
   function toggleTodoItem(event: ComponentEvents<TodoList>['toggle']) {
     let todoList = todoItems;
-    // since the array is rendered in reverse and we add the last todo item on the top of the list
-    const reversedIndex: number = (todoList.length - 1) - event.detail.index;
-    todoList[reversedIndex].isCompleted = event.detail.status;
+    todoList[getReversedIndex(event.detail.index)].isCompleted = event.detail.status;
+    todoItems = todoList;
+  }
+
+  function deleteTodoItem(event: ComponentEvents<TodoList>['delete']) {
+    let todoList = todoItems;
+    todoList.splice(getReversedIndex(event.detail), 1)
     todoItems = todoList;
   }
 </script>
@@ -37,7 +46,7 @@
   <DynamicBackground />
   <Header />
   <TodoInput on:add={addTodo} />
-  <TodoList items={todoItems} on:toggle={toggleTodoItem} />
+  <TodoList items={todoItems} on:toggle={toggleTodoItem} on:delete={deleteTodoItem} />
 </main>
 
 <style lang="scss">
