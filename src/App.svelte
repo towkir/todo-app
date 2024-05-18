@@ -23,13 +23,21 @@
     todoList.push(todo);
     todoItems = todoList;
   }
+
+  function toggleTodoItem(event: ComponentEvents<TodoList>['toggle']) {
+    let todoList = todoItems;
+    // since the array is rendered in reverse and we add the last todo item on the top of the list
+    const reversedIndex: number = (todoList.length - 1) - event.detail.index;
+    todoList[reversedIndex].isCompleted = event.detail.status;
+    todoItems = todoList;
+  }
 </script>
 
 <main>
   <DynamicBackground />
   <Header />
   <TodoInput on:add={addTodo} />
-  <TodoList items={todoItems}/>
+  <TodoList items={todoItems} on:toggle={toggleTodoItem} />
 </main>
 
 <style lang="scss">
