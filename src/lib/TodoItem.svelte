@@ -31,9 +31,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    &:not(&:last-child) {
-      border-bottom: 1px solid $border-color;
-    }
+    border-bottom: 1px solid $border-color;
     @include transition($properties: (color, background-color, border-color));
     &:hover {
       button.delete-btn {

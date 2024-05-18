@@ -40,9 +40,8 @@
       justify-content: space-between;
       color: $text-color-secondary;
       background-color: $card-bg-color;
-      border-top: 1px solid $border-color;
       @include font-size-px-to-rem(14);
-      @include transition($properties: (color, background-color, border-color));
+      @include transition($properties: (color, background-color));
       span.tabs {
         button {
           font-weight: bold;
