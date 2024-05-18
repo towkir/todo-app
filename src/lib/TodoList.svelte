@@ -5,12 +5,13 @@
   const tabs: string[] = ['All', 'Active', 'Completed'];
   let selectedTab: string = 'All';
 
+  $: reversedList = JSON.parse(JSON.stringify(items)).reverse();
   $: incompleteItems = items.filter(item => item.isCompleted === false).length;
 </script>
 
 <div class="todo-list">
   <div class="todo-list-scroller">
-    {#each items.reverse() as todo, index}
+    {#each reversedList as todo, index}
       <TodoItem index={index} todoItem={todo}/>
     {/each}
   </div>
